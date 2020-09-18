@@ -1,9 +1,12 @@
 #!/bin/bash
 
 docker run -d \
-  --net="host" \
+  -p 9100:9100 \
+  --hostname node-exporter \
+  --name node-exporter \
   --pid="host" \
   -v "/:/host:ro,rslave" \
+  --cap-add=SYS_TIME \
   quay.io/prometheus/node-exporter \
   --path.rootfs=/host
 

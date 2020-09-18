@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker run -p 9090:9090 --restart=always --name prometheus-local -d -v $PWD/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus
+docker run -p 9090:9090 --restart=always --name prom -d -v $PWD/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus
