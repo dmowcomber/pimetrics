@@ -1,10 +1,8 @@
 #! /bin/bash
 
 dataDir=$PWD/grafanaData
-# mkdir -p $dataDir
-ID=$(id -u) # saves your user id in the ID variable
+mkdir -p $dataDir
+chmod 777 $dataDir
 
-# starts grafana with your user id and using the data folder
-docker run -d --user $ID --volume "${dataDir}:/var/lib/grafana" -p 3000:3000 -e "GF_INSTALL_PLUGINS=grafana-piechart-panel,grafana-worldmap-panel" --name grafana grafana/grafana
-
+docker run -d --volume "${dataDir}:/var/lib/grafana" -p 3000:3000 -e "GF_INSTALL_PLUGINS=grafana-piechart-panel,grafana-worldmap-panel" --name grafana grafana/grafana
 
